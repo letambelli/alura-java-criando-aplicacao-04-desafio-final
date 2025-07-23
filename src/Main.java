@@ -26,6 +26,38 @@ public class Main {
         while (opcao != 4) {
             System.out.print(menu);
             opcao = leitura.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("Saldo: " + saldo);
+                    System.out.println("*".repeat(40));
+                    break;
+                case 2:
+                    System.out.println("Qual valor deseja transferir?");
+                    double valorTransferencia = leitura.nextDouble();
+
+                    if (valorTransferencia > saldo) {
+                        System.out.println("A transferência não pôde ser realizada.");
+                    } else {
+                        saldo -= valorTransferencia;
+                        System.out.println("Novo Saldo: " + saldo);
+                    }
+                    System.out.println("*".repeat(40));
+                    break;
+                case 3:
+                    System.out.println("Valor Recebido: ");
+                    double valor = leitura.nextDouble();
+                    saldo += valor;
+                    System.out.println("Novo Saldo: " + saldo);
+                    System.out.println("*".repeat(40));
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+                    System.out.println("*".repeat(40));
+                    break;
+            }
         }
 
     }
